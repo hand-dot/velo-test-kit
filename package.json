@@ -6,8 +6,6 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "postinstall": "wix sync-types",
-    "dev": "wix dev",
     "lint": "eslint .",
     "test": "vitest"
   },
