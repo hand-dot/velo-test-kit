@@ -85,5 +85,3 @@ https://github.com/hand-dot/velo-test-kit/tree/main/sample-project
 - If you wish to develop with changes reflected in a separate project:
     - Run `npm link` in `velo-test-kit`, then install `velo-test-kit` in your development project using `npm install github:hand-dot/velo-test-kit --save-dev` followed by `npm link velo-test-kit`.
     - Execute `npm run dev` in `velo-test-kit` and `npm run test` in your development project to develop with live changes detection.
-
-This setup enables an efficient and flexible development environment for Velo-based projects, simplifying unit testing and mock management.
