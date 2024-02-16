@@ -9,6 +9,7 @@ import './mocks/wix-data';
 
 global.mongoServer = null;
 
+
 beforeAll(async () => {
     const mongoServer = await MongoMemoryServer.create();
     const mongoUri = mongoServer.getUri();
