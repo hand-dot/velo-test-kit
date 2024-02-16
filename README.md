@@ -75,8 +75,8 @@ This toolkit allows for easy customization of default mock behaviors and support
 
 6. Write your tests and execute them using `npx vitest`. enjoy🤟
 
-If you want to reference a pre-setup project, please check out the following directory:  
-https://github.com/hand-dot/velo-test-kit/tree/main/sample-project
+If you want to reference a pre-setup project, please check out the following repo:  
+https://github.com/hand-dot/my-site-velo-test-kit
 
 ### Development
 
