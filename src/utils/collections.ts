@@ -7,25 +7,34 @@ const collectionsDirectory = path.join(process.cwd(), 'velo-test-kit/CMS');
 
 const createSchema = <T extends Document>(definition: SchemaDefinition): Schema<T> => new mongoose.Schema<T>(definition, { timestamps: true })
 
-let cmsCollectionsCache: { collectionName: string, schema: Schema, initialData: any[] }[];
+let cmsCollectionsCache = null;
+
 const loadCMSCollections = async () => {
     if (cmsCollectionsCache) return cmsCollectionsCache;
 
     const collectionConfigs = [];
-
-    const files = fs.readdirSync(collectionsDirectory);
-    for (const file of files) {
-        const filePath = path.join(collectionsDirectory, file);
-        if (path.extname(file) === '.ts') {
-            const { default: config } = await import(filePath);
-            const collectionName = path.basename(file, '.ts');
-            collectionConfigs.push({ collectionName, ...config });
+    if (fs.existsSync(collectionsDirectory)) {
+        const files = fs.readdirSync(collectionsDirectory);
+        for (const file of files) {
+            const filePath = path.join(collectionsDirectory, file);
+            if (path.extname(file) === '.ts') {
+                const { default: config } = await import(filePath);
+                const collectionName = path.basename(file, '.ts');
+                collectionConfigs.push({ collectionName, ...config });
+            }
         }
+    } else {
+        console.warn(`Directory not found: ${collectionsDirectory}`);
     }
-    const collections = collectionConfigs.map(({ collectionName, schema, data }) => ({ collectionName, schema: createSchema(schema), initialData: data }));
+
+    const collections = collectionConfigs.map(({ collectionName, schema, data }) => ({
+        collectionName,
+        schema: createSchema(schema),
+        initialData: data
+    }));
     cmsCollectionsCache = collections;
-    return collections
-}
+    return collections;
+};
 
 export const getCollections = loadCMSCollections;
 
