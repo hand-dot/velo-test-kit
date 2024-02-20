@@ -16,8 +16,8 @@
   "peerDependencies": {
     "@wix/cli": "^1.0.0",
     "@wix/eslint-plugin-cli": "^1.0.0",
-    "eslint": "^8.25.0",
     "esbuild": "^0.20.0",
+    "eslint": "^8.25.0",
     "prettier": "^3.2.4",
     "typescript": "^5.3.3",
     "vitest": "^1.2.1"
@@ -25,5 +25,8 @@
   "dependencies": {
     "mongodb-memory-server": "^9.1.6",
     "mongoose": "^8.1.2"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11"
   }
 }
