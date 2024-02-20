@@ -6,6 +6,8 @@ import { getCollections } from './utils/collections'
 import './mocks/wix-crm-backend';
 import './mocks/wix-members-backend';
 import './mocks/wix-data';
+import './mocks/wix-secrets-backend';
+import './mocks/wix-fetch';
 
 global.mongoServer = null;
 

@@ -140,4 +140,5 @@ const wixData: WixData = {
 vi.mock("wix-data", () => ({
   __esModule: true,
   default: wixData,
+  ...wixData,
 }));

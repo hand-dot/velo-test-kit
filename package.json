@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "test": "vitest",
     "lint": "eslint .",
     "build": "esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --external:vitest --format=esm",
     "dev": "esbuild src/index.ts --bundle --platform=node --target=node18 --outfile=dist/index.js --external:vitest --format=esm --watch"
