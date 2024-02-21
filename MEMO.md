@@ -70,11 +70,11 @@ import wixSecretsBackend from 'wix-secrets-backend';
 
 from above, created below task list.
 
-- [ ] wix-data: 17times
-- [ ] wix-secrets-backend: 11times
-- [ ] wix-fetch: 11times
-- [ ] wix-members-backend: 10times
-- [ ] wix-http-functions: 4times
-- [ ] wix-router: 4times
-- [ ] wix-auth: 3times
-- [ ] wix-crm-backend: 2times
+- [x] wix-data: 17times
+- [x] wix-secrets-backend: 11times
+- [x] wix-fetch: 11times
+- [x] wix-members-backend: 10times
+- [x] wix-http-functions: 4times
+- [x] wix-router: 4times
+- [x] wix-auth: 3times
+- [x] wix-crm-backend: 2times

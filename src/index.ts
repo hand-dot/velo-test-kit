@@ -8,6 +8,9 @@ import './mocks/wix-members-backend';
 import './mocks/wix-data';
 import './mocks/wix-secrets-backend';
 import './mocks/wix-fetch';
+import './mocks/wix-http-functions';
+import './mocks/wix-router';
+import './mocks/wix-auth';
 
 global.mongoServer = null;
 
