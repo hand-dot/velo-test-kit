@@ -8,7 +8,7 @@ const wixFetch: WixFetch = {
   getJSON: vi.fn(),
 }
 
-vi.mock("wix-secrets-backend", () => ({
+vi.mock("wix-fetch", () => ({
   __esModule: true,
   default: wixFetch,
   ...wixFetch,

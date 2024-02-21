@@ -3,6 +3,5 @@ export default defineConfig({
     test: {
         setupFiles: ['src/index.ts'],
         include: ['tests/**/*.test.ts'],
-
     },
 });
