@@ -4,7 +4,7 @@ import _wixAuth from 'wix-auth';
 type WixAuth = typeof _wixAuth;
 
 const wixAuth: WixAuth = {
-    elevate: vi.fn(),
+    elevate: vi.fn(func => func),
 }
 
 vi.mock("wix-auth", () => ({

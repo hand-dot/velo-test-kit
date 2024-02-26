@@ -4,7 +4,7 @@ import _wixHttpFunctions from 'wix-http-functions';
 type WixHttpFunctions = typeof _wixHttpFunctions;
 
 const wixHttpFunctions: WixHttpFunctions = {
-    badRequest: vi.fn(),
+    badRequest: vi.fn(() => ({ status: 400, headers: {}, body: "Bad Request" })),
     created: vi.fn(),
     forbidden: vi.fn(),
     get: vi.fn(),

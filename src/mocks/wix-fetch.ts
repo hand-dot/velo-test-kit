@@ -14,7 +14,17 @@ const wixFetch: WixFetch = {
       // cache: options.cache,
     });
   }),
-  getJSON: vi.fn(),
+  getJSON: vi.fn((url, options = {})=>{
+    return fetch(url, {
+      method: options.method,
+      headers: options.headers,
+      body: options.body,
+      // mode: options.mode,
+      // credentials: options.credentials,
+      // cache: options.cache,
+    }).then(response => response.json());
+  
+  }),
 }
 
 vi.mock("wix-fetch", () => ({
