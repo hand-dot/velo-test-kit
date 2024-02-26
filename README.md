@@ -78,6 +78,48 @@ This toolkit allows for easy customization of default mock behaviors and support
 If you want to reference a pre-setup project, please check out the following repo:  
 https://github.com/hand-dot/my-site-velo-test-kit
 
+
+### Tips
+
+#### How to mock wix-fetch
+
+First, install [msw](https://mswjs.io/).
+    
+```bash
+npm install msw
+```
+
+Then Please set a function to `global.server.use` in your test file.
+
+```
+import { http, HttpResponse } from "msw";
+import { describe, expect, test } from "vitest";
+import { fetch } from "wix-fetch";
+
+
+describe("wix-fetch", () => {
+    test("should work", async () => {
+        global.server.use(
+            http.get("https://test.com/api/hello", () => HttpResponse.json({ key1: 'value1', key2: 'value2' }))
+        );
+
+        const res = await fetch("https://test.com/api/hello")
+            .then((httpResponse) => {
+                if (httpResponse.ok) {
+                    return httpResponse.json();
+                } else {
+                    return Promise.reject('Fetch did not succeed');
+                }
+            })
+            .then(json => json.key1)
+            .catch(err => console.log(err));
+
+        expect(res).toBe('value1');
+    });
+});
+```
+
+
 ### Development
 
 - To develop within `velo-test-kit`, clone [this repo](https://github.com/hand-dot/velo-test-kit) and run `npm install`. You can run `npm run dev` within `velo-test-kit` and `npm run test` in the `sample-project` directory to test and develop simultaneously.
