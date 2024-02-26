@@ -5,7 +5,7 @@ type WixCrmBackend = typeof _wixCrmBackend;
 
 const wixCrmBackend: WixCrmBackend = {
   triggeredEmails: {
-    emailMember: vi.fn(() => Promise.resolve()),
+    emailMember: vi.fn(),
     emailContact: vi.fn(),
   },
   createContact: vi.fn(),
